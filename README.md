@@ -5,7 +5,7 @@ shell that receive commands and run them
  - Read the current directory (using getcwd) and view it promptly.
  - Command starting with ECHO - print to standard output the output that appears after ECHO.
  - TCP PORT command - will open a TCP connection to Localhost (in the client role) and the standard output will be copied there. (I.e. all output went to socket instead of normal stdout).
- - Build a server that displays the output obtained.
+   - Build a server that displays the output obtained.
 Run a server file before running the command "TCP PORT" ie open another register to register:
  1) gcc server.c -o s
  2) ./s
@@ -18,6 +18,19 @@ Run a server file before running the command "TCP PORT" ie open another register
  - DELETE command - delete the file after DELETE (using unlink).
  - bonus_ex1.c - Supports sign | (pipe) In order to generate processes when the output of one is directed to the input of the other. (
  - bonus_ex2.c - Supports recursive pipe - i.e. several times.
+ - shell.c - Adding features to the shell program -
+   - executes commands in the background by the sign &( ls -l &)
+   - redirects output to a file by the > () sign
+   - command to change the cursor by "prompt =" (prompt = myprompt)
+   - A command that changes the current working directory of the shell by the cd command (cd mydir)
+   - A command that repeats the last command (!!)
+   - command to exit the shell (quit)
+   - If the user typed C-Control, the program will not finish but will print the message:
+You typed Control-C!
+If the SHELL runs another process, the process will be thrown by the system
+(default behavior)
+   - Option to chain several commands in a pipe.
+For each command in pipe a dynamic allocation of argv is needed
 
 
 ## Through the run:
@@ -45,4 +58,10 @@ Run a server file before running the command "TCP PORT" ie open another register
 1. Open a terminal in Linux routed to the folder where the files are located.
 2. gcc bonus_ex1.c -o run_ex2
 3. ./run_ex2
+
+### Run shell.c:
+1. Open a terminal in Linux routed to the folder where the files are located.
+2. gcc shell.c -o shell
+3. ./shell
+
 
